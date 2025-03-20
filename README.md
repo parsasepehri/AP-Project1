@@ -1,4 +1,4 @@
-# Instagram CLI Clone
+# AP-Project1
 
 ## Overview
 This project is a **Python-based command-line application** that simulates core functionalities of Instagram, enabling users to create accounts, interact with posts and stories, chat with others, and manage their profiles.
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ## Installation & Setup
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/parsasepehri/Instagram-CLI.git
+   git clone https://github.com/parsasepehri/AP-Project1.git
    cd Instagram-CLI
    ```
 2. **Run the main script:**
