@@ -26,7 +26,7 @@ This project is a **Python-based command-line application** that simulates core 
 Ensure you have **Python 3.11 or later** installed. Set up a virtual environment:
 ```sh
 python3 -m venv venv
-source venv/bin/activate  # On Windows use "venv\Scripts\activate"
+source venv/bin/activate  #On Windows use "venv\Scripts\activate"
 ```
 
 Install dependencies:
