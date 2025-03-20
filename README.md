@@ -46,17 +46,6 @@ pip install -r requirements.txt
    ```
 3. Follow on-screen instructions to register or log in.
 
-## Contribution Guide
-- **Follow coding standards**: Use PEP 8, add docstrings, and use type hints.
-- **Branching strategy**:
-  - `main`: Stable version of the project.
-  - `develop`: Active development branch where features are merged.
-  - `feature/feature-name`: New features should be developed in separate feature branches.
-  - `bugfix/fix-description`: For fixing bugs found in the project.
-  - `hotfix/urgent-fix`: For critical issues that need immediate attention.
-- **Regular commits**: Maintain a structured commit history.
-- **Pull Requests**: Ensure all changes are reviewed before merging into `develop` or `main`.
-
 ## License
 This project is licensed under [MIT License](LICENSE).
 
