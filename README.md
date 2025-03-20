@@ -1,7 +1,7 @@
 # AP-Project1
 
 ## Overview
-This project is a **Python-based command-line application** that simulates core functionalities of Instagram, enabling users to create accounts, interact with posts and stories, chat with others, and manage their profiles.
+This project is a **Python-based command-line application** that simulates core functionalities of Instagram, enabling users to create accounts, interact with posts and stories, chat with others and manage their profiles.
 
 ## Features
 - **User Authentication**: Signup, login and manage user sessions.
@@ -26,7 +26,7 @@ This project is a **Python-based command-line application** that simulates core 
 Ensure you have **Python 3.11 or later** installed. Set up a virtual environment:
 ```sh
 python3 -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+source venv/bin/activate  # On Windows use "venv\Scripts\activate"
 ```
 
 Install dependencies:
