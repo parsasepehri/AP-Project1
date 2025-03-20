@@ -38,7 +38,7 @@ pip install -r requirements.txt
 1. **Clone the repository:**
    ```sh
    git clone https://github.com/parsasepehri/AP-Project1.git
-   cd Instagram-CLI
+   cd AP-Project1
    ```
 2. **Run the main script:**
    ```sh
