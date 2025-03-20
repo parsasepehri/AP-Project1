@@ -4,10 +4,10 @@
 This project is a **Python-based command-line application** that simulates core functionalities of Instagram, enabling users to create accounts, interact with posts and stories, chat with others, and manage their profiles.
 
 ## Features
-- **User Authentication**: Sign up, log in, and manage user sessions.
+- **User Authentication**: Signup, login and manage user sessions.
 - **Home Feed**:
   - View posts from followed users.
-  - Like, comment, and save posts.
+  - Like, comment and save posts.
   - Watch and like stories.
 - **Search & Explore**:
   - Search for users and view their profiles.
