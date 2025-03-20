@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ## Installation & Setup
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/yourusername/Instagram-CLI.git
+   git clone https://github.com/parsasepehri/Instagram-CLI.git
    cd Instagram-CLI
    ```
 2. **Run the main script:**
@@ -61,5 +61,4 @@ pip install -r requirements.txt
 This project is licensed under [MIT License](LICENSE).
 
 ## Contact
-For inquiries, open an issue or contact [your_email@example.com].
-
+For inquiries, open an issue or contact [parsasepehri36@gmail.com].
