@@ -1,0 +1,29 @@
+{
+    "users": {
+        "parsa": {
+            "password": "123",
+            "liked_posts": [
+                101,
+                102
+            ],
+            "comments": {
+                "101": "Great post!"
+            }
+        },
+        "maryam": {
+            "password": "1234",
+            "liked_posts": [],
+            "comments": {}
+        }
+    },
+    "posts": {
+        "101": {
+            "author": "username2",
+            "likes": 20,
+            "comments": [
+                "Nice!",
+                "Awesome!"
+            ]
+        }
+    }
+}
