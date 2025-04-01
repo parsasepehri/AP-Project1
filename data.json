@@ -2,28 +2,28 @@
     "users": {
         "parsa": {
             "password": "123",
-            "liked_posts": [
-                101,
-                102
-            ],
+            "liked_posts": [101, 102],
             "comments": {
                 "101": "Great post!"
-            }
+            },
+            "user_info": ["parsa_sepehri", "parsa sepehri", "coffe&code!", "Public", "blocked_users"],
+            "posts": ["sunshine & goodtimes", "lost in the moment"],
+            "saved_posts": ["Great post by @CNN", "heavy rain expected this evening"]
         },
         "maryam": {
             "password": "1234",
             "liked_posts": [],
-            "comments": {}
+            "comments": {},
+            "user_info": ["maryam_bhd", "Maryam Bahadoran", "Animal Lover", "Public", "blocked_users"],
+            "posts": ["Mood:whatever..", "take it easy"],
+            "saved_posts": ["Great post by @NASA", "Behold the beauty of a newly discovered nebula!"]
         }
     },
     "posts": {
         "101": {
             "author": "username2",
             "likes": 20,
-            "comments": [
-                "Nice!",
-                "Awesome!"
-            ]
+            "comments": ["Nice!", "Awesome!"]
         }
     }
 }
