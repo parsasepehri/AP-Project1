@@ -50,20 +50,20 @@ def login():
     username = str(input())
     while(isvalid_username(username) == False or user_found(username) == False):
         Console().print("[bold red]Please enter a valid username or turn back:\n[green]1. [yellow]enter a username\n[green]2. [yellow]turn back[/yellow]")
-        username = str(input())
-        if(username == "2"):
+        choice = str(input())
+        if(choice == "2"):
             return "error"
-        elif username == "1":
+        elif choice == "1":
             Console().print("[cyan]Please enter your username: [/cyan]")
             username = str(input())
         else:
-            while(username != "1" and username != "2"):
+            while(choice != "1" and choice != "2"):
                 Console().print("[bold red]Please enter a valid choice: [/bold red]")
-                username = str(input())
-                if username == "1":
+                choice = str(input())
+                if choice == "1":
                     Console().print("[cyan]Please enter your username: [/cyan]")
                     username = str(input())
-                elif username == "2":
+                elif choice == "2":
                     return "error"
     Console().print("[cyan]Please enter your password: [/cyan]")
     password = str(input())
