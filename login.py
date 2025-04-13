@@ -92,8 +92,8 @@ def sign_up():
     while(isvalid_password(password) == False):
         Console().print("[bold red]Please enter a valid password: [/bold red]")
         password = str(input())
-    data["users"].append({"username": username,"email": "", "password": password,"bio": "","followers": [],"following": [],"following requests":[],
-        "account stat" : "public", "blocked users" : [], "users blocked this account": [],"post counts" : 0})
+    data["users"].append({"username": username,"email": "", "password": password,"bio": "","followers": [],"following": [],"follow requests":[],
+        "account stat" : "public", "blocked users" : [],"post counts" : 0})
     dc.save_data(data)
     for step in track(range(10), description=f"[green]Signed up,wait a second [/green]",style="blue"):
         time.sleep(0.5)

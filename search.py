@@ -59,13 +59,25 @@ def main(username):
                     for step in track(range(10), description=f"[cyan]You unfollowed {choic}...[/cyan]",style="blue"):
                         time.sleep(0.5)
                 else:
+                    private = False
                     for user in data["users"]:
-                        if user["username"] == username:
-                            user["following"].append(choic)
                         if user["username"] == choic:
-                            user["followers"].append(username)
-                    for step in track(range(10), description=f"[cyan]You followed {choic}...[/cyan]",style="blue"):
-                        time.sleep(0.5)
+                            if user["account stat"] == "private":
+                                private = True
+                    if private == True:
+                        for user in data["users"]:
+                            if user["username"] == choic:
+                                user["follow requests"].append(username)
+                        for step in track(range(10), description=f"[cyan]You requested {choic} to follow...[/cyan]",style="blue"):
+                            time.sleep(0.5)
+                    else:
+                        for user in data["users"]:
+                            if user["username"] == username:
+                                user["following"].append(choic)
+                            if user["username"] == choic:
+                                user["followers"].append(username)
+                        for step in track(range(10), description=f"[cyan]You followed {choic}...[/cyan]",style="blue"):
+                            time.sleep(0.5)
             else:
                 for user in data["users"]:
                     if user["username"] == username:
