@@ -24,7 +24,7 @@ def isvalid_username(username):
 def user_found(username):
     data = dc.load_data()
     for user in data["users"]:
-        if user == username:
+        if user["username"] == username:
             return True
     return False
 
@@ -37,7 +37,7 @@ def isvalid_password(password):
 
 def password_found(password:str):
     data = dc.load_data()
-    if password in [user["password"] for user in data["users"].values()]:
+    if password in [user["password"] for user in data["users"]]:
         return True
     return False
 
@@ -72,6 +72,7 @@ def login():
         password = str(input())
     for step in track(range(10), description=f"[green]Logged in,wait a second [/green]",style="blue"):
         time.sleep(0.5)
+    return username
 
 def sign_up():
     data = dc.load_data()
@@ -91,7 +92,8 @@ def sign_up():
     while(isvalid_password(password) == False):
         Console().print("[bold red]Please enter a valid password: [/bold red]")
         password = str(input())
-    data["users"][username] = {"password": password, "liked_posts": [],"comments": {}}
+    data["users"].append({"username": username,"email": "", "password": password,"bio": "","followers": [],"following": [],"following requests":[],
+        "account stat" : "public", "blocked users" : [], "users blocked this account": [],"post counts" : 0})
     dc.save_data(data)
     for step in track(range(10), description=f"[green]Signed up,wait a second [/green]",style="blue"):
         time.sleep(0.5)

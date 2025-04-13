@@ -2,6 +2,7 @@ from database_commands import load_data, save_data
 from rich.progress import track
 import time
 import login
+import search
 from rich.console import Console
 import os
 
@@ -22,22 +23,20 @@ def show_menu():
         choice = str(input())
     return choice
 
+log_stat = login.main()
 while True:
-    if(login.main() != "error"):
+    if(log_stat != "error"):
         os.system("cls")
         choice = show_menu()
         if(choice == "1"):
             wait("wait a second...","blue")
             #your function should be here
-            #break
         elif(choice == "2"):
             wait("wait a second...","blue")
-            #your function should be here
-            #break
+            search.main(log_stat)
         elif(choice == "3"):
             wait("wait a second...","blue")
             #your function should be here
-            #break
         else:
             Console().print("[bold cyan]We are happy to see you,take care![/bold cyan]")
             break

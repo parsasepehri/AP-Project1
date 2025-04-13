@@ -1,29 +1,73 @@
 {
-    "users": {
-        "parsa": {
+    "users": [
+        {
+            "username": "parsa",
+            "email": "parsa@example.com",
             "password": "123",
-            "liked_posts": [
-                101,
-                102
-            ],
-            "comments": {
-                "101": "Great post!"
-            }
+            "bio": "AI Researcher & Crypto Enthusiast",
+            "followers": [],
+            "following": [],
+            "following requests": [],
+            "account stat": "public",
+            "blocked users": [],
+            "post counts": 0
         },
-        "maryam": {
-            "password": "1234",
-            "liked_posts": [],
-            "comments": {}
+        {
+            "username": "maryam",
+            "email": "parsa@example.com",
+            "password": "123",
+            "bio": "AI Researcher & Crypto Enthusiast",
+            "followers": [
+                "parsa"
+            ],
+            "following": [],
+            "following requests": [],
+            "account stat": "public",
+            "blocked users": [],
+            "post counts": 0
         }
-    },
-    "posts": {
-        "101": {
-            "author": "username2",
-            "likes": 20,
+    ],
+    "posts": [
+        {
+            "id": 101,
+            "user_id": 1,
+            "image_url": "https://example.com/post1.jpg",
+            "caption": "Exploring AI in Neuroscience!",
+            "tags": [
+                "AI",
+                "Neuroscience"
+            ],
+            "likes": [
+                2,
+                3
+            ],
             "comments": [
-                "Nice!",
-                "Awesome!"
-            ]
+                {
+                    "id": 201,
+                    "user_id": 2,
+                    "text": "Great work!",
+                    "created_at": "2025-04-01T12:30:00Z"
+                }
+            ],
+            "created_at": "2025-04-01T12:00:00Z"
         }
-    }
+    ],
+    "messages": [
+        {
+            "id": 301,
+            "sender_id": 1,
+            "receiver_id": 2,
+            "text": "Hey! How's your research going?",
+            "sent_at": "2025-04-01T13:00:00Z",
+            "seen": true
+        }
+    ],
+    "stories": [
+        {
+            "id": 401,
+            "user_id": 1,
+            "image_url": "https://example.com/story1.jpg",
+            "expires_at": "2025-04-02T12:00:00Z"
+        }
+    ]
 }
