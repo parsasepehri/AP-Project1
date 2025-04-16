@@ -83,5 +83,5 @@ def main(username):
                     if user["username"] == username:
                         user["blocked users"].append(choic)
                 for step in track(range(10), description=f"[cyan]You blocked {choic}...[/cyan]",style="blue"):
-                        time.sleep(0.5)
+                    time.sleep(0.5)
     dc.save_data(data)
