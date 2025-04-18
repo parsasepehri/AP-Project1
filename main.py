@@ -5,6 +5,7 @@ import login
 import search
 from rich.console import Console
 import os
+import profile
 
 def wait(description,color):
     for step in track(range(10), description=f"[{color}]{description}[/{color}]",style="blue"):
