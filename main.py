@@ -5,8 +5,7 @@ import login
 import search
 from rich.console import Console
 import os
-import profile
-
+import user_profile
 def wait(description,color):
     for step in track(range(10), description=f"[{color}]{description}[/{color}]",style="blue"):
         time.sleep(0.5)
@@ -37,7 +36,7 @@ while True:
             search.main(log_stat)
         elif(choice == "3"):
             wait("wait a second...","blue")
-            #your function should be here
+            user_profile.main(log_stat)
         else:
             Console().print("[bold cyan]We are happy to see you,take care![/bold cyan]")
             break
