@@ -26,114 +26,93 @@ def user_found(username):
 
 def show_profile_menu():
     console = Console()
-    console.print("[purple]1. [yellow]edit Profile")
-    console.print("[purple]2. [yellow]view Posts")
-    console.print("[purple]3. [yellow]blocked user settings")
-    console.print("[purple]4. [yellow]back")
+    console.print("[green]1. [yellow]edit Profile")
+    console.print("[green]2. [yellow]view Posts")
+    console.print("[green]3. [yellow]view savedposts")
+    console.print("[green]4. [yellow]blocked user settings")
+    console.print("[green]5. [yellow]back")
     console.print("[cyan]enter your choice: [/cyan]")
     choice = str(input())
-    while choice not in ["1", "2", "3", "4"]:
-        console.print("[bold red] enter a valid choice: [/bold red]")
+    while choice not in ["1", "2", "3", "4", "5"]:
+        console.print("[bold red]enter a valid choice: [/bold red]")
         choice = str(input())
     return choice
 
-
-
 def edit_profile(username):
+    os.system("cls")
     data = dc.load_data()
     if data == "error":
         console = Console()
         console.print("[bold red]error: there is a problem opening dadtabase file.[/bold red]")
         return "error"
-    
     console = Console()
-    print("[cyan]what would you like to edit?[/cyan]")
-    print("[lightgreen]1.[/green] username")
-    print("[lightgreen]2.[/green] password")
-    print("[lightgreen]3.[/green] bio")
-    print("[lightgreen]4.[/green] account privacy (Public/Private)")
-    print("[red]5.[/red] Cancel")
-    
-    choice = input("[cyan]enter your choice: [/cyan]")
+    console.print("[cyan]what would you like to edit?[/cyan]")
+    console.print("[green]1. [yellow]username")
+    console.print("[green]2. [yellow]password")
+    console.print("[green]3. [yellow]bio")
+    console.print("[green]4. [yellow]account privacy (Public/Private)")
+    console.print("[red]5. Cancel[/red]")
+    console.print("[cyan]enter your choice: [/cyan]")
+    choice = str(input())
+    while choice not in ["1","2","3","4","5"]:
+        console.print("[bold red]invalid option! try again.[/bold red]")
+        choice = str(input())
 
     if choice == "1":
-        print("[cyan]enter new username: [/cyan]")
-        new_username = input()
-        
-        
-        for a in range(int('inf')):  
-            if new_username != "" and new_username != username and isvalid_username(new_username) and not user_found(new_username):
-                break
-            else:
-                console.print("[bold red]enter a valid and unique username: [/bold red]")
-                new_username = input("[cyan]enter new username : [/cyan]")
-        
+        os.system("cls")
+        console.print("[cyan]enter your new username: [/cyan]")
+        new_username = str(input())
+        while new_username == "" or new_username == username or isvalid_username(new_username) == False or user_found(new_username) == True:
+            console.print("[cyan]enter a valid username: [/cyan]")
+            new_username = str(input())
         for user in data["users"]:
             if user["username"] == username:
-                if new_username != "":
-                    user["username"] = new_username
-                break
-
+                user["username"] = new_username
+        dc.save_data(data)
+        for step in track(range(10), description="[cyan]you updated profile...[/cyan]", style="blue"):
+            time.sleep(0.5)
     elif choice == "2":
-        print("[cyan]enter new password : [/cyan]")
-        new_password = input()
-        
-        for b in range(int('inf')): 
-            if new_password != "" and isvalid_password(new_password):
-                break
-            else:
-                console.print("[bold red]enter a valid password: [/bold red]")
-                new_password = input("[cyan]enter new password : [/cyan]")
-        
+        os.system("cls")
+        console.print("[cyan]enter your new password : [/cyan]")
+        new_password = str(input())
+        while new_password == "" or isvalid_password(new_password) == False:
+            console.print("[bold red]enter a valid password: [/bold red]")
+            new_password = str(input())
         for user in data["users"]:
             if user["username"] == username:
-                if new_password != "":
-                    user["password"] = new_password
-                break
-
+                user["password"] = new_password
+        dc.save_data(data)
+        for step in track(range(10), description="[cyan]you updated profile...[/cyan]", style="blue"):
+            time.sleep(0.5)
     elif choice == "3":
-        print("[cyan]enter new bio : [/cyan]")
-        new_bio = input()
-        
+        os.system("cls")
+        console.print("[cyan]enter your new bio: [/cyan]")
+        new_bio = str(input())
         for user in data["users"]:
             if user["username"] == username:
-                if new_bio != "":
-                    user["bio"] = new_bio
-                break
-
+                user["bio"] = new_bio
+        dc.save_data(data)
+        for step in track(range(10), description="[cyan]you updated profile...[/cyan]", style="blue"):
+            time.sleep(0.5)
     elif choice == "4":
-        print("[cyan]set account privacy([green]public[/green]/[red]private[/red]: [/cyan]")
-        new_privacy = input()
-
-        while True:
-         console.print("[cyan]choose the new account privacy:[/cyan]")
-         console.print("1. [green]Public[/green]")
-         console.print("2. [red]Private[/red]")
-         choice = input("[bold yellow]your choice (1 or 2): [/bold yellow]")
-         if choice == "1":
-             new_privacy = "public"
-             break
-         elif choice == "2":
-          new_privacy = "private"
-          break
-         else:
-           console.print("[bold red]invalid input. enter 1 or 2 .[/bold red]")
-
-         for user in data["users"]:
-          if user["username"] == username:
-           if new_privacy!= "":
-             user["account stat"] = new_privacy
-           break
-
-    elif choice == "5":
-        console.print("[bold yellow]back.[/bold yellow]")
-        return "canceled"
+        os.system("cls")
+        console.print("[cyan]set account privacy:\n[green]1. [yellow]public\n[green]2. [yellow]private[/yellow]")
+        choice = str(input())
+        while choice != "1" and choice != "2":
+            console.print("[bold red]Please enter a valid number: [/bold red]")
+            choice = str(input())
+        for user in data["users"]:
+            if user["username"] == username:
+                if choice == "1":
+                    user["account stat"] = "public"
+                else:
+                    user["account stat"] = "private"
+        dc.save_data(data)
+        for step in track(range(10), description="[cyan]you updated profile...[/cyan]", style="blue"):
+            time.sleep(0.5)
     else:
-        console.print("[bold red]invalid option! try again.[/bold red]")
-    dc.save_data(data)
-    for step in track(range(10), description="[cyan]you updated profile...[/cyan]", style="blue"):
-        time.sleep(0.5)
-    return new_username if new_username else username
+        return "canceled"
+
 
 def view_posts(username):
     data = dc.load_data()
@@ -145,7 +124,7 @@ def view_posts(username):
     user_id = None
     for user in data["users"]:
         if user["username"] == username:
-            user_id = username  
+            user_id = username
             break
     
     if user_id is None:
@@ -160,9 +139,40 @@ def view_posts(username):
         for post in user_posts:
             console.print(f"[cyan]Post ID: {post['id']} | Caption: {post['caption']}[/cyan]")
             console.print(f"[white]Tags: {', '.join(post['tags'])} | Likes: {len(post['likes'])} | Comments: {len(post['comments'])}[/white]")
-            console.print(f"[gray]Posted at: {post['created_at']}[/gray]\n")
+            console.print(f"[green]Posted at: {post['created_at']}[/green]\n")
     console.print("[cyan]Press Enter to continue...[/cyan]")
     input()
+
+def view_savedposts(username):
+    data = dc.load_data()
+    if data == "error":
+        Console().print("[bold red]there is a problem opening database file.[/bold red]")
+        return
+
+    console = Console()
+
+    for user in data["users"]:
+        if user["username"] == username:
+            if "saved_posts" not in user or not user["saved_posts"]:
+                console.print("[yellow]You have no saved posts![/yellow]")
+                console.print("[cyan]Press Enter to continue...[/cyan]")
+                input()
+                return
+
+            saved_posts = [post for post in data["posts"] if post["id"] in user["saved posts"]]
+
+            for post in saved_posts:
+                console.print(f"[cyan]Post ID: {post['id']} | Caption: {post['caption']}")
+                console.print(f"[white]Author: {post['user_id']} | Tags: {', '.join(post['tags'])}")
+                console.print(f"Likes: {len(post['likes'])} | Comments: {len(post['comments'])}[/white]")
+                console.print(f"[gray]Posted at: {post['created_at']}[/gray]\\n")
+
+            console.print("[cyan]Press Enter to continue...[/cyan]")
+            input()
+            return 
+
+    console.print("[bold red]User not found![/bold red]")
+
 
 def blocked_user_settings(username):
     data = dc.load_data()
@@ -182,15 +192,15 @@ def blocked_user_settings(username):
             
             console.print("[cyan]Blocked Users:[/cyan]")
             for blocked_user in blocked_users:
-                console.print(f"[yellow]{blocked_user}")
-            console.print("[cyan]enter the username of the user to unblock (or type '0' to go back): [/cyan]")
+                console.print(f"[yellow]{blocked_user}[/yellow]")
+            console.print("[cyan]enter the username of the user to unblock (or type 0 to go back): [/cyan]")
             choice = input()
             while choice != "0":
                 if choice in blocked_users: 
                     break
                 else:
-                    console.print("[bold red]please enter a valid username from the blocked list.[/bold red]")
-                choice = input("[cyan]enter the username of the user to unblock (or type '0' to go back): [/cyan]").strip()
+                    console.print("[bold red]please enter a valid username from the blocked list (or type 0 to go back): [/bold red]")
+                choice = input()
             
             if choice == "0":
                 return
@@ -202,20 +212,22 @@ def blocked_user_settings(username):
             for _ in range(10):
                 time.sleep(0.5)
                 console.print(f"[blue]unblocked {unblock_user}... Step {_+1}/10[/blue]")
-            console.print(f"[lightgreen]successfully unblocked {unblock_user}![/bold green]")
+            console.print(f"[bold green]successfully unblocked {unblock_user}![/bold green]")
+            time.sleep(3)
             return
 
 def main(username):
-    os.system("cls")
     while True:
+        os.system("cls")
         choice = show_profile_menu()
         if choice == "1":
-            username = edit_profile(username)
-            if username == "error":
-                return "error"
+            edit_profile(username)
         elif choice == "2":
             view_posts(username)
         elif choice == "3":
+            view_savedposts(username)
+        elif choice== "4":
             blocked_user_settings(username)
         else:
+            
             return username
