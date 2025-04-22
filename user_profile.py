@@ -144,6 +144,7 @@ def view_posts(username):
     input()
 
 def view_savedposts(username):
+    os.system("cls")
     data = dc.load_data()
     if data == "error":
         Console().print("[bold red]there is a problem opening database file.[/bold red]")
@@ -153,20 +154,22 @@ def view_savedposts(username):
 
     for user in data["users"]:
         if user["username"] == username:
-            if "saved_posts" not in user or not user["saved_posts"]:
+            if len(user["saved posts"]) == 0:
                 console.print("[yellow]You have no saved posts![/yellow]")
                 console.print("[cyan]Press Enter to continue...[/cyan]")
                 input()
                 return
 
-            saved_posts = [post for post in data["posts"] if post["id"] in user["saved posts"]]
-
-            for post in saved_posts:
-                console.print(f"[cyan]Post ID: {post['id']} | Caption: {post['caption']}")
-                console.print(f"[white]Author: {post['user_id']} | Tags: {', '.join(post['tags'])}")
-                console.print(f"Likes: {len(post['likes'])} | Comments: {len(post['comments'])}[/white]")
-                console.print(f"[gray]Posted at: {post['created_at']}[/gray]\\n")
-
+            saved_posts = []
+            for id in user["saved posts"]:
+                saved_posts.append(id)
+            for saved in saved_posts:
+                for posts in data["posts"]:
+                    if saved == posts["id"]:
+                        console.print(f"[cyan]Post ID: {posts['id']} | Caption: {posts['caption']}")
+                        console.print(f"[white]Author: {posts['user_id']} | Tags: {', '.join(posts['tags'])}")
+                        console.print(f"[white]Likes: {len(posts['likes'])} | Comments: {len(posts['comments'])}[/white]")
+                        console.print(f"[green]Posted at: {posts['created_at']}[/green]")
             console.print("[cyan]Press Enter to continue...[/cyan]")
             input()
             return 
