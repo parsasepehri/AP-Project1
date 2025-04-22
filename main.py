@@ -25,6 +25,8 @@ def show_menu():
 
 log_stat = login.main()
 while True:
+    if(log_stat == "turned_backed"):
+        log_stat = login.main()
     if(log_stat != "error"):
         os.system("cls")
         choice = show_menu()

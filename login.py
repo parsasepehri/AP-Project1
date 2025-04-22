@@ -52,7 +52,7 @@ def login():
         Console().print("[bold red]Please enter a valid username or turn back:\n[green]1. [yellow]enter a username\n[green]2. [yellow]turn back[/yellow]")
         choice = str(input())
         if(choice == "2"):
-            return "error"
+            return "turned_back"
         elif choice == "1":
             Console().print("[cyan]Please enter your username: [/cyan]")
             username = str(input())

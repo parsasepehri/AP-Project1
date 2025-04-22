@@ -2,9 +2,9 @@
     "users": [
         {
             "username": "parsa",
-            "email": "parsa@example.com",
-            "password": "123",
-            "bio": "AI Researcher & Crypto Enthusiast",
+            "email": "parsa36@gmail.com",
+            "password": "parsa1384",
+            "bio": "ai scientist",
             "followers": [],
             "following": [],
             "follow requests": [],
@@ -14,12 +14,34 @@
         },
         {
             "username": "maryam",
-            "email": "parsa@example.com",
-            "password": "123",
+            "email": "maryam1223@gmail.com",
+            "password": "mrym12",
             "bio": "AI Researcher & Crypto Enthusiast",
-            "followers": [
-                "parsa"
-            ],
+            "followers": [],
+            "following": [],
+            "follow requests": [],
+            "account stat": "public",
+            "blocked users": [],
+            "post counts": 0
+        },
+        {
+            "username": "sara",
+            "email": "sara23@gmail.com",
+            "password": "sara45",
+            "bio": "software engineer",
+            "followers": [],
+            "following": [],
+            "follow requests": [],
+            "account stat": "public",
+            "blocked users": [],
+            "post counts": 0
+        },
+        {
+            "username": "amin",
+            "email": "aminpaykani@gmail.com",
+            "password": "amin1384",
+            "bio": "",
+            "followers": [],
             "following": [],
             "follow requests": [],
             "account stat": "public",
@@ -30,7 +52,7 @@
     "posts": [
         {
             "id": 101,
-            "user_id": 1,
+            "user_id": "mamad",
             "image_url": "https://example.com/post1.jpg",
             "caption": "Exploring AI in Neuroscience!",
             "tags": [
@@ -49,7 +71,7 @@
                     "created_at": "2025-04-01T12:30:00Z"
                 }
             ],
-            "created_at": "2025-04-01T12:00:00Z"
+            "created_at": "2025-04-01 12:00:00"
         }
     ],
     "messages": [

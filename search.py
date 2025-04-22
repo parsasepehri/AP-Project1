@@ -34,7 +34,7 @@ def main(username):
                     return "error"
     for user in data["users"]:
         if user["username"] == choic:
-            console.print(f"[cyan]Posts: [white]{user['post counts']} [cyan]Followers: [white]{len(user['followers'])} [cyan]Following: [white]{len(user['following'])}[/white]")
+            console.print(f"[cyan]Posts: [white]{user['post counts']} | [cyan]Followers: [white]{len(user['followers'])} | [cyan]Following: [white]{len(user['following'])}[/white]")
             console.print(f"[medium_purple]{user['bio']}[/medium_purple]")
             follow = False
             for followers in user["followers"]:
@@ -81,7 +81,15 @@ def main(username):
             else:
                 for user in data["users"]:
                     if user["username"] == username:
-                        user["blocked users"].append(choic)
-                for step in track(range(10), description=f"[cyan]You blocked {choic}...[/cyan]",style="blue"):
-                    time.sleep(0.5)
+                        blocked = False
+                        for blocked_users in user["blocked users"]:
+                            if blocked_users == choic:
+                                blocked = True
+                        if blocked == False:
+                            user["blocked users"].append(choic)
+                            for step in track(range(10), description=f"[cyan]You blocked {choic}...[/cyan]",style="blue"):
+                                time.sleep(0.5)
+                        else:
+                            console.print("[red]You already blocked this user!")
+                            time.sleep(3)
     dc.save_data(data)
