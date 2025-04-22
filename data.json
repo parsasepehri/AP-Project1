@@ -10,7 +10,8 @@
             "follow requests": [],
             "account stat": "public",
             "blocked users": [],
-            "post counts": 0
+            "post counts": 0,
+            "saved posts" : [101]
         },
         {
             "username": "maryam",
@@ -22,7 +23,8 @@
             "follow requests": [],
             "account stat": "public",
             "blocked users": [],
-            "post counts": 0
+            "post counts": 0,
+            "saved posts" : [101]
         },
         {
             "username": "sara",
@@ -34,7 +36,8 @@
             "follow requests": [],
             "account stat": "public",
             "blocked users": [],
-            "post counts": 0
+            "post counts": 0,
+            "saved posts" : [101]
         },
         {
             "username": "amin",
@@ -46,7 +49,8 @@
             "follow requests": [],
             "account stat": "public",
             "blocked users": [],
-            "post counts": 0
+            "post counts": 0,
+            "saved posts" : [101]
         }
     ],
     "posts": [
