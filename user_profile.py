@@ -155,7 +155,7 @@ def view_savedposts(username):
     for user in data["users"]:
         if user["username"] == username:
             if len(user["saved posts"]) == 0:
-                console.print("[yellow]You have no saved posts![/yellow]")
+                console.print("[red]You have no saved posts![/red]")
                 console.print("[cyan]Press Enter to continue...[/cyan]")
                 input()
                 return
