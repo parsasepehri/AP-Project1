@@ -28,11 +28,12 @@ def show_profile_menu():
     console = Console()
     console.print("[green]1. [yellow]edit Profile")
     console.print("[green]2. [yellow]view Posts")
-    console.print("[green]3. [yellow]blocked user settings")
-    console.print("[green]4. [yellow]back")
+    console.print("[green]3. [yellow]view savedposts")
+    console.print("[green]4. [yellow]blocked user settings")
+    console.print("[green]5. [yellow]back")
     console.print("[cyan]enter your choice: [/cyan]")
     choice = str(input())
-    while choice not in ["1", "2", "3", "4"]:
+    while choice not in ["1", "2", "3", "4", "5"]:
         console.print("[bold red]enter a valid choice: [/bold red]")
         choice = str(input())
     return choice
@@ -111,7 +112,7 @@ def edit_profile(username):
             time.sleep(0.5)
     else:
         return "canceled"
-    # return new_username if new_username else username
+
 
 def view_posts(username):
     data = dc.load_data()
@@ -141,6 +142,37 @@ def view_posts(username):
             console.print(f"[green]Posted at: {post['created_at']}[/green]\n")
     console.print("[cyan]Press Enter to continue...[/cyan]")
     input()
+
+def view_savedposts(username):
+    data = dc.load_data()
+    if data == "error":
+        Console().print("[bold red]there is a problem opening database file.[/bold red]")
+        return
+
+    console = Console()
+
+    for user in data["users"]:
+        if user["username"] == username:
+            if "saved_posts" not in user or not user["saved_posts"]:
+                console.print("[yellow]You have no saved posts![/yellow]")
+                console.print("[cyan]Press Enter to continue...[/cyan]")
+                input()
+                return
+
+            saved_posts = [post for post in data["posts"] if post["id"] in user["saved posts"]]
+
+            for post in saved_posts:
+                console.print(f"[cyan]Post ID: {post['id']} | Caption: {post['caption']}")
+                console.print(f"[white]Author: {post['user_id']} | Tags: {', '.join(post['tags'])}")
+                console.print(f"Likes: {len(post['likes'])} | Comments: {len(post['comments'])}[/white]")
+                console.print(f"[gray]Posted at: {post['created_at']}[/gray]\\n")
+
+            console.print("[cyan]Press Enter to continue...[/cyan]")
+            input()
+            return 
+
+    console.print("[bold red]User not found![/bold red]")
+
 
 def blocked_user_settings(username):
     data = dc.load_data()
@@ -193,6 +225,9 @@ def main(username):
         elif choice == "2":
             view_posts(username)
         elif choice == "3":
+            view_savedposts(username)
+        elif choice== "4":
             blocked_user_settings(username)
         else:
+            
             return username
